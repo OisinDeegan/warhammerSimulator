@@ -98,15 +98,13 @@ public class Main {
                 if (hit.hitCheck(bs, x)) {
                     System.out.println("Your attack hit! WAAAAGH!!");
                     if (hit.critCheck(Sus, Lethal, x)) {
-                        if(Lethal){
-                            /* auto wounds */
+                        if(Lethal==true){
+                            System.out.println("You automatically wound, Armor saves go here");
                         }
-                        if(Sus){
+                        if(Sus==true){
                             /* add hits to the while loop */
                         }
-                    }
-
-                    if (ouch.woundCheck(str, t, y)){
+                    }else if (ouch.woundCheck(str, t, y)){
                         System.out.println("Armor saves go here");
                     }
                             

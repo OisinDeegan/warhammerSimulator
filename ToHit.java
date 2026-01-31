@@ -9,7 +9,7 @@ public class ToHit {
     }
 
     public boolean critCheck(boolean Sus, boolean Lethal, int x){
-        if(Sus || Lethal){
+        if(Sus == true|| Lethal == true){
             if(x==6){
                 return true;
             }else{
