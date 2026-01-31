@@ -21,7 +21,7 @@ public class ToWound{
             }
         }else if (str>t) {
             System.out.println("You wound on 3s");
-            if (x>=3) {
+            if (y>=3) {
                 System.out.println("You wound them!");
                 return true;
             } else {
@@ -30,7 +30,7 @@ public class ToWound{
             }
         }else if ((t/2)>=str) {
             System.out.println("You wound on 6s");
-            if (x>=6) {
+            if (y>=6) {
                 System.out.println("You wound them!");
                 return true;
             } else {
@@ -39,13 +39,13 @@ public class ToWound{
             }
         }else if (t>str) {
             System.out.println("You wound on 5s");
-            if (x>=5) {
+            if (y>=5) {
                 System.out.println("You wound them!");
                 return true;
             } else {
                 System.out.println("You do not wound them");
                 return false;
             }
-        }
+        }else return false;
     }
 }

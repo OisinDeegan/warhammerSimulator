@@ -117,8 +117,6 @@ public class Main {
             }    
             whileControl2++;
         }
-            
+        input.close();       
     }
-        
-    input.close();
 }
