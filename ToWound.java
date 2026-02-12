@@ -46,6 +46,8 @@ public class ToWound{
                 System.out.println("You do not wound them");
                 return false;
             }
-        }else return false;
+        }else{
+            return false;
+        }
     }
 }

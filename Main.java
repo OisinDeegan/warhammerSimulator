@@ -89,12 +89,6 @@ public class Main {
                 x=ranNum.nextInt(6) + 1;
                 y=ranNum.nextInt(6) + 1;
                 z=ranNum.nextInt(6) + 1;
-                if (invuln==true) {
-                    if ((save+rend)>=invSave) {
-                        rend=0;
-                        save=invSave;
-                    }
-                }
                 if (hit.hitCheck(bs, x)) {
                     System.out.println("Your attack hit! WAAAAGH!!");
                     if (hit.critCheck(Sus, Lethal, x)) {
