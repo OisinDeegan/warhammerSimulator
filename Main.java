@@ -30,6 +30,7 @@ public class Main {
         boolean invuln=false;
         ToHit hit = new ToHit();
         ToWound ouch = new ToWound();
+        ToSave armor = new ToSave();
 
         System.out.print("Enter the amount of models in the attacking unit: ");
         models=input.nextInt();
@@ -75,6 +76,7 @@ public class Main {
             System.out.print("Enter the target unit Invul. save value: ");
             invSave=input.nextInt();
         }
+        // loop in case there are multiple models in a unit (each one gets to attack)
         while (whileControl2<=models) {
             System.out.println();
             if (models==1) {
@@ -82,6 +84,7 @@ public class Main {
             }else{
                 System.out.print("Model "+whileControl2+" ");
             }
+            // attack calulations
             whileControl1=1;
             while (whileControl1<=attack) {
                 System.out.println();
@@ -93,13 +96,19 @@ public class Main {
                     System.out.println("Your attack hit! WAAAAGH!!");
                     if (hit.critCheck(Sus, Lethal, x)) {
                         if(Lethal==true){
-                            System.out.println("You automatically wound, Armor saves go here");
+                            System.out.println("You automatically wound with a critical hit");
+                            armor.regSave(z, rend, save, invSave, invuln);
                         }
                         if(Sus==true){
                             /* add hits to the while loop */
                         }
                     }else if (ouch.woundCheck(str, t, y)){
-                        System.out.println("Armor saves go here");
+                        if (DevWo) {
+                            armor.devWoSave(z, rend, save, invSave, invuln);
+                        } else {
+                            armor.regSave(z, rend, save, invSave, invuln);
+                        }
+                        
                     }
                             
                 }else{
