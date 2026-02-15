@@ -10,11 +10,9 @@ public class Main {
         int bs =0;
         int str =0;
         int t=0;
-        int ws=0;
         int attack=0;
         int models=0;
         int susModTotal =0;
-        int gameMode =0;
         int susMod =0;
         int susModCounter=0;
         int save=0;
@@ -26,7 +24,6 @@ public class Main {
         boolean Lethal=false;
         boolean DevWo=false;
         boolean Sus =false;
-        boolean critMortal=false;
         boolean invuln=false;
         ToHit hit = new ToHit();
         ToWound ouch = new ToWound();
@@ -100,7 +97,31 @@ public class Main {
                             armor.regSave(z, rend, save, invSave, invuln);
                         }
                         if(Sus==true){
-                            /* add hits to the while loop */
+                            System.out.println("Regular attack: ");
+                            if (ouch.woundCheck(str, t, y)){
+                                if (DevWo) {
+                                    armor.devWoSave(z, rend, save, invSave, invuln);
+                                } else {
+                                    armor.regSave(z, rend, save, invSave, invuln);
+                                }
+                                
+                            }
+                            System.out.println("Sustained attack(s): ");
+                            for(int i=1;i<=susMod;i++){
+                                int ySus=ranNum.nextInt(6) + 1;
+                                int zSus=ranNum.nextInt(6) + 1;
+                                System.out.println("Sustained wound roll "+i);
+                                if (ouch.woundCheck(str, t, ySus)){
+                                    System.out.println("Sustained save roll "+i);
+                                    if (DevWo) {
+                                        armor.devWoSave(zSus, rend, save, invSave, invuln);
+                                    } else {
+                                        armor.regSave(zSus, rend, save, invSave, invuln);
+                                    }
+                                    
+                                }
+                                System.out.println();
+                            }
                         }
                     }else if (ouch.woundCheck(str, t, y)){
                         if (DevWo) {
